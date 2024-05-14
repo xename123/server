@@ -5,8 +5,12 @@ const sendDrinkCreated = (req, res) => {
 const sendDrinks = (req, res) => {
   const name = req.query.name;
   const drinks = req.drinks;
-  const result = drinks.filter((drink) => drink.strDrink.includes(name));
-  res.json(result);
+  if (!name) {
+    res.json(drinks);
+  } else {
+    const result = drinks.filter((drink) => drink.strDrink.includes(name));
+    res.json(result);
+  }
 };
 const sendDrink = (req, res) => {
   const id = req.params.id;
