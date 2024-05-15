@@ -14,7 +14,9 @@ const updateDrinks = async (req, res, next) => {
   try {
     req.drinks.push({
       strDrink: req.body.name,
-      strDrinkThumb: req.body.image,
+      strDrinkThumb: req.body.image
+        ? req.body.image
+        : "https://storage.yandexcloud.net/game-img/f_9216644624b67b56.webp",
       idDrink: req.drinks.length,
       strInstructions: req.body.instructions,
       strIngredient: req.body.ingredients,
