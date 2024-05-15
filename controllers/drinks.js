@@ -8,7 +8,9 @@ const sendDrinks = (req, res) => {
   if (!name) {
     res.json(drinks);
   } else {
-    const result = drinks.filter((drink) => drink.strDrink.includes(name));
+    const result = drinks.filter((drink) =>
+      drink.strDrink.toLowerCase().includes(name.toLowerCase())
+    );
     res.json(result);
   }
 };
