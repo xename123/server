@@ -17,7 +17,7 @@ const updateDrinks = async (req, res, next) => {
       strDrinkThumb: req.body.image,
       idDrink: req.drinks.length,
       strInstructions: req.body.instructions,
-      strIngredient1: req.body.ingredients,
+      strIngredient: req.body.ingredients,
     });
     await writeData("./data/drinks.json", req.drinks);
     next();
